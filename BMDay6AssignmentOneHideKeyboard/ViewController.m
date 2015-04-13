@@ -29,4 +29,14 @@
   [sender resignFirstResponder];
 }
 
+//make the keyboard disappear when you press the background
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+  
+  UITouch *touch = [[event allTouches]anyObject];
+  if([self.hideKeyboardTextField isFirstResponder] && [touch view] != self.hideKeyboardTextField){
+    [self.hideKeyboardTextField resignFirstResponder];
+  }
+  [super touchesBegan:touches withEvent:event];
+}
+
 @end
